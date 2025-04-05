@@ -170,7 +170,7 @@ const Recruitment = () => {
                     />
                   </div>
                   
-                  <div className="flex flex-wrap items-center gap-2">
+                  {/* <div className="flex flex-wrap items-center gap-2">
                     <div className="flex items-center gap-2 mr-4 bg-blue-50 rounded-md px-3 py-1">
                       <Sparkles className="h-4 w-4 text-blue-500" />
                       <span className="text-sm text-blue-700 font-medium">AI Tools:</span>
@@ -232,7 +232,7 @@ const Recruitment = () => {
                         </SelectContent>
                       </Select>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </CardHeader>
               <CardContent className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
