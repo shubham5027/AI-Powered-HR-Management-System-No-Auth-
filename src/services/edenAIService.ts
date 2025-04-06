@@ -30,20 +30,20 @@ export interface InterviewAnalysisResult {
   recommendation: 'Hire' | 'Review' | 'Reject';
 }
 
-async function getApiKey(): Promise<string> {
-  // Try to get API key from Supabase Edge Functions
-  try {
-    const { data, error } = await supabase.functions.invoke('get-eden-ai-key', {
-      method: 'GET',
-    });
+// async function getApiKey(): Promise<string> {
+//   // Try to get API key from Supabase Edge Functions
+//   try {
+//     const { data, error } = await supabase.functions.invoke('get-eden-ai-key', {
+//       method: 'GET',
+//     });
     
-    if (error) throw new Error(error.message);
-    return data.apiKey;
-  } catch (error) {
-    console.error('Error getting Eden AI API key:', error);
-    throw new Error('Failed to get Eden AI API key');
-  }
-}
+//     if (error) throw new Error(error.message);
+//     return data.apiKey;
+//   } catch (error) {
+//     console.error('Error getting Eden AI API key:', error);
+//     throw new Error('Failed to get Eden AI API key');
+//   }
+// }
 
 export async function uploadAudioForTranscription(audioBlob: Blob): Promise<string> {
   try {
@@ -74,12 +74,12 @@ export async function uploadAudioForTranscription(audioBlob: Blob): Promise<stri
 
 export async function transcribeAudio(audioUrl: string, language = 'en-US'): Promise<TranscriptionResult> {
   try {
-    const apiKey = await getApiKey();
+    // const apiKey = await getApiKey();
     
     const response = await fetch(`${API_BASE_URL}/audio/speech_to_text`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${apiKey}`,
+        'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1YmQwOTYtZTQ2OC00ZjEwLTk2Y2MtOWU2ZjUwMjIxZjY3IiwidHlwZSI6ImFwaV90b2tlbiJ9.QL-Qjs13w0VxiLng4b_9AS8uD16n1u7fM3vT31pX7F0",
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -111,12 +111,12 @@ export async function transcribeAudio(audioUrl: string, language = 'en-US'): Pro
 
 export async function analyzeSentiment(text: string, language = 'en'): Promise<SentimentResult> {
   try {
-    const apiKey = await getApiKey();
+    // const apiKey = await getApiKey();
     
     const response = await fetch(`${API_BASE_URL}/text/sentiment_analysis`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${apiKey}`,
+        'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1YmQwOTYtZTQ2OC00ZjEwLTk2Y2MtOWU2ZjUwMjIxZjY3IiwidHlwZSI6ImFwaV90b2tlbiJ9.QL-Qjs13w0VxiLng4b_9AS8uD16n1u7fM3vT31pX7F0",
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -153,12 +153,12 @@ export async function analyzeSentiment(text: string, language = 'en'): Promise<S
 
 export async function extractKeywords(text: string, language = 'en'): Promise<KeywordExtractionResult> {
   try {
-    const apiKey = await getApiKey();
+    // const apiKey = await getApiKey();
     
     const response = await fetch(`${API_BASE_URL}/text/keyword_extraction`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${apiKey}`,
+        'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1YmQwOTYtZTQ2OC00ZjEwLTk2Y2MtOWU2ZjUwMjIxZjY3IiwidHlwZSI6ImFwaV90b2tlbiJ9.QL-Qjs13w0VxiLng4b_9AS8uD16n1u7fM3vT31pX7F0",
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -271,12 +271,12 @@ export async function processInterview(audioBlob: Blob, candidateId: string): Pr
 // Added new functions for resume analysis
 export async function extractTextFromResume(fileUrl: string): Promise<string> {
   try {
-    const apiKey = await getApiKey();
+    // const apiKey = await getApiKey();
     
     const response = await fetch(`${API_BASE_URL}/ocr/ocr`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${apiKey}`,
+        'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1YmQwOTYtZTQ2OC00ZjEwLTk2Y2MtOWU2ZjUwMjIxZjY3IiwidHlwZSI6ImFwaV90b2tlbiJ9.QL-Qjs13w0VxiLng4b_9AS8uD16n1u7fM3vT31pX7F0",
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -305,12 +305,12 @@ export async function extractTextFromResume(fileUrl: string): Promise<string> {
 
 export async function extractEntitiesFromText(text: string): Promise<string[]> {
   try {
-    const apiKey = await getApiKey();
+    // const apiKey = await getApiKey();
     
     const response = await fetch(`${API_BASE_URL}/text/named_entity_recognition`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${apiKey}`,
+        'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOGE1YmQwOTYtZTQ2OC00ZjEwLTk2Y2MtOWU2ZjUwMjIxZjY3IiwidHlwZSI6ImFwaV90b2tlbiJ9.QL-Qjs13w0VxiLng4b_9AS8uD16n1u7fM3vT31pX7F0",
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({

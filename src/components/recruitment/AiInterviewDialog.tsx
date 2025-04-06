@@ -48,30 +48,30 @@ export function AiInterviewDialog({
   const [analysisResult, setAnalysisResult] = useState<InterviewAnalysisResult | null>(null);
   const [edenKeyAvailable, setEdenKeyAvailable] = useState<boolean | null>(null);
   
-  // Check if Eden AI key exists
-  useEffect(() => {
-    if (open) {
-      checkEdenAiKey();
-    }
-  }, [open]);
+  // // Check if Eden AI key exists
+  // useEffect(() => {
+  //   if (open) {
+  //     checkEdenAiKey();
+  //   }
+  // }, [open]);
   
-  const checkEdenAiKey = async () => {
-    try {
-      const { data, error } = await supabase.functions.invoke('get-eden-ai-key', {
-        method: 'GET',
-      });
+  // const checkEdenAiKey = async () => {
+  //   try {
+  //     const { data, error } = await supabase.functions.invoke('get-eden-ai-key', {
+  //       method: 'GET',
+  //     });
       
-      if (error) {
-        setEdenKeyAvailable(false);
-        return;
-      }
+  //     if (error) {
+  //       setEdenKeyAvailable(false);
+  //       return;
+  //     }
       
-      setEdenKeyAvailable(!!data.apiKey);
-    } catch (error) {
-      console.error('Error checking Eden AI key:', error);
-      setEdenKeyAvailable(false);
-    }
-  };
+  //     setEdenKeyAvailable(!!data.apiKey);
+  //   } catch (error) {
+  //     console.error('Error checking Eden AI key:', error);
+  //     setEdenKeyAvailable(false);
+  //   }
+  // };
   
   const handleReset = () => {
     setStep('setup');
@@ -194,7 +194,6 @@ export function AiInterviewDialog({
             </div>
           </div>
         );
-        
       case 'recording':
         return (
           <div className="space-y-4">
