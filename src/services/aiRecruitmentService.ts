@@ -166,15 +166,15 @@ export const generateOfferLetter = async (
   });
   
   return `
-NexusHR Inc.
-123 Business Avenue
-San Francisco, CA 94105
+Mindsprint
+ITP White Field
+Banglore, India
 
 ${currentDate}
 
 Dear ${candidateName},
 
-We are pleased to offer you the position of ${jobTitle} at NexusHR Inc. After careful consideration of your qualifications and experience, we believe you would be a valuable addition to our team.
+We are pleased to offer you the position of ${jobTitle} at Minsprint Inc. After careful consideration of your qualifications and experience, we believe you would be a valuable addition to our team.
 
 This letter confirms our offer with the following details:
 
@@ -197,9 +197,9 @@ We are excited about the possibility of you joining our team and look forward to
 
 Sincerely,
 
-Alex Johnson
+
 HR Director
-NexusHR Inc.
+Mindsprint Inc.
 
 ACCEPTANCE:
 I, ${candidateName}, accept the offer as outlined above.
