@@ -115,14 +115,14 @@ export function AppSidebar() {
                   </SidebarMenuSubItem>
                 </SidebarMenuSub>
               </SidebarMenuItem>
-              <SidebarMenuItem>
+              {/* <SidebarMenuItem>
                 <SidebarMenuButton asChild isActive={location.pathname === '/candidate-evaluation'}>
                   <Link to="/candidate-evaluation" className="flex items-center">
                     <Globe className="w-4 h-4 mr-3" />
                     <span>Candidate Evaluation</span>
                   </Link>
                 </SidebarMenuButton>
-              </SidebarMenuItem>
+              </SidebarMenuItem> */}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>

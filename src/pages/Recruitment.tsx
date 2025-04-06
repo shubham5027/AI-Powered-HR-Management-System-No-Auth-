@@ -170,69 +170,7 @@ const Recruitment = () => {
                     />
                   </div>
                   
-                  {/* <div className="flex flex-wrap items-center gap-2">
-                    <div className="flex items-center gap-2 mr-4 bg-blue-50 rounded-md px-3 py-1">
-                      <Sparkles className="h-4 w-4 text-blue-500" />
-                      <span className="text-sm text-blue-700 font-medium">AI Tools:</span>
-                      <Button 
-                        variant="ghost" 
-                        size="sm" 
-                        className="text-blue-600 hover:text-blue-800 hover:bg-blue-100"
-                        onClick={() => handleOpenAiScreening()}
-                      >
-                        <FileText className="w-3 h-3 mr-1" />
-                        Screen
-                      </Button>
-                      <Button 
-                        variant="ghost" 
-                        size="sm"
-                        className="text-blue-600 hover:text-blue-800 hover:bg-blue-100"
-                        onClick={() => handleOpenAiInterview()}
-                      >
-                        <MessageSquare className="w-3 h-3 mr-1" />
-                        Interview
-                      </Button>
-                      <Button 
-                        variant="ghost" 
-                        size="sm"
-                        className="text-blue-600 hover:text-blue-800 hover:bg-blue-100"
-                        onClick={() => handleOpenPortfolioEvaluation()}
-                      >
-                        <Globe className="w-3 h-3 mr-1" />
-                        Portfolio
-                      </Button>
-                      <Button 
-                        variant="ghost" 
-                        size="sm"
-                        className="text-blue-600 hover:text-blue-800 hover:bg-blue-100"
-                        onClick={() => handleOpenOfferLetter()}
-                      >
-                        <Sparkles className="w-3 h-3 mr-1" />
-                        Offer
-                      </Button>
-                    </div>
-                    
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm text-muted-foreground">Status:</span>
-                      <Select
-                        defaultValue="all"
-                        onValueChange={setFilter}
-                      >
-                        <SelectTrigger className="w-[180px]">
-                          <SelectValue placeholder="All Candidates" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="all">All Candidates</SelectItem>
-                          <SelectItem value="new">New</SelectItem>
-                          <SelectItem value="screening">Screening</SelectItem>
-                          <SelectItem value="interview">Interview</SelectItem>
-                          <SelectItem value="offered">Offered</SelectItem>
-                          <SelectItem value="hired">Hired</SelectItem>
-                          <SelectItem value="rejected">Rejected</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div> */}
+          
                 </div>
               </CardHeader>
               <CardContent className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
