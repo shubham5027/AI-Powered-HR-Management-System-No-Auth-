@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { 
   Card, 
@@ -10,7 +9,7 @@ import {
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { useAuth } from '@/context/AuthContext';
+// import { useAuth } from '@/context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { Eye, EyeOff, LogIn } from 'lucide-react';
 import { toast } from 'sonner';
@@ -20,25 +19,26 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
+  // const { login, isAuthenticated } = useAuth();
 
-  useEffect(() => {
-    // Redirect if already logged in
-    if (isAuthenticated) {
-      navigate('/');
-    }
-  }, [isAuthenticated, navigate]);
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     navigate('/');
+  //   }
+  // }, [isAuthenticated, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
-      await login(email, password);
+      // Temporarily disabled auth
+      // await login(email, password);
+      navigate('/');
+      toast.success('Login successful');
     } catch (error: any) {
-      // Error is already handled in the AuthContext
-      console.error('Login submission error:', error);
+      console.error('Login error:', error);
     } finally {
       setIsLoading(false);
     }

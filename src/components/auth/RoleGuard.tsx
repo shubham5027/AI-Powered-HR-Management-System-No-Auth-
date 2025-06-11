@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { currentUser, UserRole } from '@/data/mockData';
 
 interface RoleGuardProps {
@@ -10,18 +9,18 @@ interface RoleGuardProps {
 }
 
 export function RoleGuard({ allowedRoles, children, fallback }: RoleGuardProps) {
-  const navigate = useNavigate();
-  const user = currentUser;
+  // const navigate = useNavigate();
+  // const user = currentUser;
   
-  React.useEffect(() => {
-    if (!allowedRoles.includes(user.role) && !fallback) {
-      navigate('/');
-    }
-  }, [user.role, allowedRoles, navigate, fallback]);
+  // React.useEffect(() => {
+  //   if (!allowedRoles.includes(user.role) && !fallback) {
+  //     navigate('/');
+  //   }
+  // }, [user.role, allowedRoles, navigate, fallback]);
 
-  if (!allowedRoles.includes(user.role)) {
-    return fallback ? <>{fallback}</> : null;
-  }
+  // if (!allowedRoles.includes(user.role)) {
+  //   return fallback ? <>{fallback}</> : null;
+  // }
 
   return <>{children}</>;
 }

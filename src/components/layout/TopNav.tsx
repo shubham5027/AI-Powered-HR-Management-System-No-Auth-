@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { 
   SidebarTrigger
@@ -22,12 +21,17 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Link } from 'react-router-dom';
-import { useAuth } from '@/context/AuthContext';
+// import { useAuth } from '@/context/AuthContext';
 import { ThemeToggle } from '@/components/theme/ThemeToggle';
 
 export function TopNav() {
-  const { user, logout } = useAuth();
-  const userInitials = user?.name ? user.name.split(' ').map(n => n[0]).join('') : 'U';
+  // Temporarily replace auth with mock data
+  const mockUser = {
+    name: 'Demo User',
+    position: 'Employee',
+    avatar: undefined
+  };
+  const userInitials = mockUser.name.split(' ').map(n => n[0]).join('');
 
   return (
     <header className="border-b border-border py-3 px-6">
@@ -54,12 +58,12 @@ export function TopNav() {
             <DropdownMenuTrigger asChild>
               <button className="flex items-center gap-2">
                 <Avatar className="h-8 w-8">
-                  <AvatarImage src={user?.avatar} alt={user?.name} />
+                  <AvatarImage src={mockUser.avatar} alt={mockUser.name} />
                   <AvatarFallback>{userInitials}</AvatarFallback>
                 </Avatar>
                 <div className="hidden md:block text-left">
-                  <div className="text-sm font-medium">{user?.name}</div>
-                  <div className="text-xs text-muted-foreground">{user?.position}</div>
+                  <div className="text-sm font-medium">{mockUser.name}</div>
+                  <div className="text-xs text-muted-foreground">{mockUser.position}</div>
                 </div>
                 <ChevronDown className="h-4 w-4 text-muted-foreground" />
               </button>
@@ -74,7 +78,9 @@ export function TopNav() {
                 <Link to="/settings">Settings</Link>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={logout}>Logout</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => {
+                // Temporarily disabled logout
+              }}>Logout</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

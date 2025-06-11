@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { 
   Card, 
@@ -11,7 +10,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { useAuth } from '@/context/AuthContext';
+// import { useAuth } from '@/context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { Eye, EyeOff, User } from 'lucide-react';
 import { toast } from 'sonner';
@@ -25,15 +24,14 @@ const Register = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const { register, isAuthenticated } = useAuth();
   const navigate = useNavigate();
+  // const { register, isAuthenticated } = useAuth();
 
-  useEffect(() => {
-    // Redirect if already logged in
-    if (isAuthenticated) {
-      navigate('/');
-    }
-  }, [isAuthenticated, navigate]);
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     navigate('/');
+  //   }
+  // }, [isAuthenticated, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,9 +50,11 @@ const Register = () => {
     }
 
     try {
-      await register(name, email, password, position);
+      // Temporarily disabled auth
+      // await register(name, email, password, position);
+      toast.success('Registration successful!');
+      navigate('/login');
     } catch (error: any) {
-      // Error is already handled in the AuthContext
       console.error('Registration submission error:', error);
     } finally {
       setIsLoading(false);

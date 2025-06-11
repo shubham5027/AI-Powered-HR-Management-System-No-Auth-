@@ -1,11 +1,10 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { AuthProvider } from "@/context/AuthContext";
-import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
+// import { AuthProvider } from "@/context/AuthContext";
+// import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 
 // Pages
@@ -33,29 +32,29 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <AuthProvider>
+          {/* <AuthProvider> */}
             <Routes>
               {/* Auth routes */}
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               
-              {/* Protected routes */}
-              <Route path="/" element={<ProtectedRoute><Index /></ProtectedRoute>} />
-              <Route path="/recruitment" element={<ProtectedRoute><Recruitment /></ProtectedRoute>} />
-              <Route path="/candidate-evaluation" element={<ProtectedRoute><CandidateEvaluation /></ProtectedRoute>} />
-              <Route path="/onboarding" element={<ProtectedRoute><Onboarding /></ProtectedRoute>} />
-              <Route path="/schedules" element={<ProtectedRoute><Schedules /></ProtectedRoute>} />
-              <Route path="/payroll" element={<ProtectedRoute><Payroll /></ProtectedRoute>} />
-              <Route path="/employee-relations" element={<ProtectedRoute><EmployeeRelations /></ProtectedRoute>} />
-              <Route path="/hr-analytics" element={<ProtectedRoute><HRAnalytics /></ProtectedRoute>} />
-              <Route path="/employees" element={<ProtectedRoute><Employees /></ProtectedRoute>} />
-              <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
-              <Route path="/support" element={<ProtectedRoute><Support /></ProtectedRoute>} />
+              {/* Previously protected routes */}
+              <Route path="/" element={<Index />} />
+              <Route path="/recruitment" element={<Recruitment />} />
+              <Route path="/candidate-evaluation" element={<CandidateEvaluation />} />
+              <Route path="/onboarding" element={<Onboarding />} />
+              <Route path="/schedules" element={<Schedules />} />
+              <Route path="/payroll" element={<Payroll />} />
+              <Route path="/employee-relations" element={<EmployeeRelations />} />
+              <Route path="/hr-analytics" element={<HRAnalytics />} />
+              <Route path="/employees" element={<Employees />} />
+              <Route path="/settings" element={<Settings />} />
+              <Route path="/support" element={<Support />} />
               
               {/* Catch-all route */}
               <Route path="*" element={<NotFound />} />
             </Routes>
-          </AuthProvider>
+          {/* </AuthProvider> */}
         </BrowserRouter>
       </ThemeProvider>
     </TooltipProvider>
